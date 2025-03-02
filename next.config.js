@@ -8,18 +8,13 @@ const { composePlugins, withNx } = require('@nx/next');
  **/
 const nextConfig = {
   nx: {
-    // Set this to true if you would like to use SVGR
-    // See: https://github.com/gregberge/svgr
     svgr: false,
   },
   eslint: {
-    ignoreDuringBuilds: true, // ✅ Disable ESLint during build to prevent Vercel errors
+    ignoreDuringBuilds: true, // ✅ Ignore ESLint errors on Vercel
   },
 };
 
-const plugins = [
-  // Add more Next.js plugins to this list if needed.
-  withNx,
-];
+const plugins = [withNx];
 
 module.exports = composePlugins(...plugins)(nextConfig);
